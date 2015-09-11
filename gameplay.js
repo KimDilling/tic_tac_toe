@@ -1,9 +1,16 @@
 
+
+
 var played; //is the canvas already used for a move 
 var contains; //what does the canvas square contain	
 
 		//See window.onload Event Note in README
 	window.onload=function(){
+
+		$("#Restart").click(function(){
+    				location.reload(true);
+
+				});
 		//create the two arrays, set the winning combinations array(s), start the iterater, clean board	
 		played = new Array();
 		contains = new Array();
@@ -53,12 +60,15 @@ var contains; //what does the canvas square contain
 			squaresFilled++; //increment the filled squares count
 			checkForWinners(contains[canvasNumber-1]); //call the function with the play just completed so it knows who won --see function below
 
-			//determine if tie game
+			//determine if tie game (space filled) or if space is not available
 			if(squaresFilled==9){
 				
-				$(".replyText").text("No Winner. Game Over. Refresh Page For New Game.");
+				$(".replyText").text("No Winner. Game Over.");
+				//$("#Restart").click(function(){
+    				//location.reload(true);
 
-			}
+					//});
+				}
 			
 				} else	{
 
@@ -75,7 +85,10 @@ var contains; //what does the canvas square contain
 
 			if(contains[winningCombinations[w][0]]==symbol&&contains[winningCombinations[w][1]]==	symbol&&contains[winningCombinations[w][2]]==symbol){
 				$(".replyText").text(symbol+ " WON!");
-				playAgain();
+				//$("#Restart").click(function(){
+    				//location.reload(true);
+
+				//});//playAgain();
 			}//variable w tells that the array is a particular combination of three and looks to see if the symbol matches any of the corresponding winning combinations 
 			}
 
