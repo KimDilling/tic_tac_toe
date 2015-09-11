@@ -64,10 +64,7 @@ var contains; //what does the canvas square contain
 			if(squaresFilled==9){
 				
 				$(".replyText").text("No Winner. Game Over.");
-				//$("#Restart").click(function(){
-    				//location.reload(true);
-
-					//});
+				
 				}
 			
 				} else	{
@@ -85,29 +82,12 @@ var contains; //what does the canvas square contain
 
 			if(contains[winningCombinations[w][0]]==symbol&&contains[winningCombinations[w][1]]==	symbol&&contains[winningCombinations[w][2]]==symbol){
 				$(".replyText").text(symbol+ " WON!");
-				//$("#Restart").click(function(){
-    				//location.reload(true);
-
-				//});//playAgain();
+				
 			}//variable w tells that the array is a particular combination of three and looks to see if the symbol matches any of the corresponding winning combinations 
 			}
 
 		}
 
-	function playAgain(){
-		var y=confirm("PLAY AGAIN?");  
-			
-			if(y==true){
-				
-				location.reload(true);
-
-			} else	{
-
-				$(".replyText").text("Goodbye");
-				//return alert("Goodbye");with div element replyText;
-		}
-
-	}
 
 
 
