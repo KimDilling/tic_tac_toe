@@ -2,23 +2,41 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<title>Tic Tac Toe</title>
+		<link rel="stylesheet" type="text/css" href="normalize.css"/>
 		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<script type="text/javascript" href="gameplay.js"></script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript" src="gameplay.js">
+		</script>
+		
+
+		
 	</head>
 	<body>
 		<h1>Let's Play A Game</h1>
-		<div id ="box">
-			
-			<canvas id = "canvas1"  width="100" height="100" style="border:1px solid white" onclick="canvasClicked(1)"></canvas>
-			<canvas id = "canvas2"  width="100" height="100" style="border:1px solid white" onclick="canvasClicked(2)"></canvas>
-			<canvas id = "canvas3"  width="100" height="100" style="border:1px solid white" onclick="canvasClicked(3)"></canvas><br/>
-			<canvas id = "canvas4"  width="100" height="100" style="border:1px solid white" onclick="canvasClicked(4)"></canvas>
-			<canvas id = "canvas5"  width="100" height="100" style="border:1px solid white" onclick="canvasClicked(5)"></canvas>
-			<canvas id = "canvas6"  width="100" height="100" style="border:1px solid white" onclick="canvasClicked(6)"></canvas><br/>
-			<canvas id = "canvas7"  width="100" height="100" style="border:1px solid white" onclick="canvasClicked(7)"></canvas>
-			<canvas id = "canvas8"  width="100" height="100" style="border:1px solid white" onclick="canvasClicked(8)"></canvas>
-			<canvas id = "canvas9"  width="100" height="100" style="border:1px solid white" onclick="canvasClicked(9)"></canvas>
+
+		<div id="box">
+			<div class="row"> <!--Canvas Element note in Read Me-->
+				<canvas id = "canvas1" class="canvas" width="100" height="100"  style="border:1px solid white" onclick="canvasSelected(1)"></canvas>
+				<canvas id = "canvas2" class="canvas"  width="100" height="100" style="border:1px solid white" onclick="canvasSelected(2)"></canvas>
+				<canvas id = "canvas3" class="canvas"  width="100" height="100" style="border:1px solid white" onclick="canvasSelected(3)"></canvas>
+			</div>
+			<div class="row">
+				<canvas id = "canvas4" class="canvas"  width="100" height="100" style="border:1px solid white" onclick="canvasSelected(4)"></canvas>
+				<canvas id = "canvas5" class="canvas"  width="100" height="100" style="border:1px solid white" onclick="canvasSelected(5)"></canvas>
+				<canvas id = "canvas6" class="canvas"  width="100" height="100" style="border:1px solid white" onclick="canvasSelected(6)"></canvas>
+			</div>
+			<div class="row">
+				<canvas id = "canvas7" class="canvas"  width="100" height="100" style="border:1px solid white" onclick="canvasSelected(7)"></canvas>
+				<canvas id = "canvas8" class="canvas"  width="100" height="100" style="border:1px solid white" onclick="canvasSelected(8)"></canvas>
+				<canvas id = "canvas9" class="canvas"  width="100" height="100" style="border:1px solid white" onclick="canvasSelected(9)"></canvas>
+			</div>
 		</div>
+
+		<div class="replyText"></div>
+		
 	</body>
+	
 </html>
 
