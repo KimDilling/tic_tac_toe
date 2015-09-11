@@ -56,37 +56,43 @@ var contains; //what does the canvas square contain
 				}
 				//check for winners
 			turn++; //increment the turn variable
-			played[canvasNumber-1] = true; //communicate the canvas just palyed is full
-			squaresFilled++; //increment the filled squares count
-			checkForWinners(contains[canvasNumber-1]); //call the function with the play just completed so it knows who won --see function below
-
-			//determine if tie game (space filled) or if space is not available
-			if(squaresFilled==9){
-				
-				$(".replyText").text("No Winner. Game Over.");
-				
-				}
+			played[canvasNumber-1] = true; //communicate the canvas just played is full
+			var hasWinner = checkForWinners(contains[canvasNumber-1]); //call the function with the play just completed so it knows who won --see function below
+			console.log(hasWinner);
 			
-				} else	{
 
-					alert("Space Not Available");
-				}
+			 if (!hasWinner) {
+			 	squaresFilled++; //increment the filled squares count
+				//determine if tie game (space filled) or if space is not available
+				
+				if(squaresFilled==9){
+					
+					$(".replyText").text("No Winner. Game Over.");
+					
+					}
+				
+					} else	{
 
+						alert("Space Not Available");
+					}
+			}
 		}
 
 	var winningCombinations;//possible wins
 	//determine winner
 	function checkForWinners(symbol){//symbol is either X or O
-			
+		var c = false	
 		for(var w = 0; w < winningCombinations.length; w++){//array winningCombinations with content length of 3
 
-			if(contains[winningCombinations[w][0]]==symbol&&contains[winningCombinations[w][1]]==	symbol&&contains[winningCombinations[w][2]]==symbol){
+			if(contains[winningCombinations[w][0]]==symbol&&contains[winningCombinations[w][1]]==symbol&&contains[winningCombinations[w][2]]==symbol){
+				c = true;
 				$(".replyText").text(symbol+ " WON!");
 				
-			}//variable w tells that the array is a particular combination of three and looks to see if the symbol matches any of the corresponding winning combinations 
-			}
+				}//variable w tells that the array is a particular combination of three and looks to see if the symbol matches any of the corresponding winning combinations 
 
 		}
+			return c;
+	}
 
 
 
