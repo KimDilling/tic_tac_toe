@@ -26,6 +26,12 @@ Project 1
 	Canvas Tutorial
 		https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial
 
+	Coding Resource (Book)
+		HTML5 and CSS All In One by Andy Harris
+
+		https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
+
+
 
 Initial Psuedocode:
 1. Create simple board with canvas in html file
@@ -63,3 +69,17 @@ Canvas Element Note
 
 	**Canvas Style elements should be in CSS but they render as rectangles when I switch them over
 
+window.onload Event Note
+	An event handler for the load event of a window.
+
+	The load event fires at the end of the document loading process. At this point, all of the objects in the document are in the DOM, and all the images, scripts, links and sub-frames have finished loading.
+
+	https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
+
+
+
+document.getElementById(id) Note
+
+	Returns a reference to the element by its ID.
+
+	https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById

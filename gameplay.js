@@ -1,59 +1,59 @@
 
-var painted;//
-var content;//		
+var played; //is the canvas already used for a move 
+var contains; //what does the canvas square contain	
 
-		//create the three arrays, set the winning combinations, start the iterater, clean board
+		//See window.onload Event Note in README
 	window.onload=function(){
-			
-		painted = new Array();
-		content = new Array();
+		//create the two arrays, set the winning combinations array(s), start the iterater, clean board	
+		played = new Array();
+		contains = new Array();
+		//two arrays (one within the other)
 		winningCombinations = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 
+			//use the for loop to add to the played and contains arrays max 9 times
 			for(var i = 0; i <= 8; i++){
-			painted[i] = false;
-			content[i]='';
+			played[i] = false;
+			contains[i]='';
 			}
 	}
 
 	var squaresFilled = 0;	
-	var c;
-	var cxt;
-	var theCanvas;//the box - canvas
 	var turn = 0;//who will play x or o
 
+	//uses canvas number as the arguement for the function fromthe HTML element
 	function canvasSelected(canvasNumber){
 
-		theCanvas = "canvas"+canvasNumber;
-		c = document.getElementById(theCanvas);
-		cxt = c.getContext("2d");
+		var theCanvas = "canvas"+canvasNumber; //the boxes in the viewport + the box number
+		var id = document.getElementById(theCanvas); //see document.getElementById note in README
+		var cxt = id.getContext("2d"); //establishes we are constructing a 2D drawing in the canvas
 			
-			//drawing method for X
-			if(painted[canvasNumber-1] ==false){
-				if(turn%2==0){
-					cxt.beginPath();
+			
+			if(played[canvasNumber-1] ==false){//if the canvas piece is empty continue to play and mark the square
+				if(turn%2==0){//turn variable started at 0 and denotes if it is an X turn or O turn. 
+					cxt.beginPath();//drawing specs for an X
 					cxt.moveTo(20,20);
 					cxt.lineTo(80,80);
 					cxt.moveTo(80,20);
 					cxt.lineTo(20,80);
 					cxt.stroke();
 					cxt.closePath();
-					content[canvasNumber-1] = 'X';
+					contains[canvasNumber-1] = 'X';
 				}
-				//drawing method for o
+				
 				else{
-					cxt.beginPath();
+					cxt.beginPath(); //drawing specs for an O
 					cxt.arc(50,50,40,0,Math.PI*2,true);
 					cxt.stroke();
 					cxt.closePath();
-					content[canvasNumber-1] = 'O';
+					contains[canvasNumber-1] = 'O';
 				}
-				//change player, play, check for winners
-			turn++;
-			painted[canvasNumber-1] = true;
-			squaresFilled++;
-			checkForWinners(content[canvasNumber-1]);
+				//check for winners
+			turn++; //increment the turn variable
+			played[canvasNumber-1] = true; //communicate the canvas just palyed is full
+			squaresFilled++; //increment the filled squares count
+			checkForWinners(contains[canvasNumber-1]); //call the function with the play just completed so it knows who won --see function below
 
-			//tie game result, refresh
+			//determine if tie game
 			if(squaresFilled==9){
 				
 				$(".replyText").text("No Winner. Game Over. Refresh Page For New Game.");
@@ -69,14 +69,14 @@ var content;//
 
 	var winningCombinations;//possible wins
 	//determine winner
-	function checkForWinners(symbol){
+	function checkForWinners(symbol){//symbol is either X or O
 			
-		for(var a = 0; a < winningCombinations.length; a++){
+		for(var w = 0; w < winningCombinations.length; w++){//array winningCombinations with content length of 3
 
-			if(content[winningCombinations[a][0]]==symbol&&content[winningCombinations[a][1]]==	symbol&&content[winningCombinations[a][2]]==symbol){
+			if(contains[winningCombinations[w][0]]==symbol&&contains[winningCombinations[w][1]]==	symbol&&contains[winningCombinations[w][2]]==symbol){
 				$(".replyText").text(symbol+ " WON!");
 				playAgain();
-			}
+			}//variable w tells that the array is a particular combination of three and looks to see if the symbol matches any of the corresponding winning combinations 
 			}
 
 		}

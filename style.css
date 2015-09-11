@@ -29,17 +29,16 @@ body{
     font-size: 1.5em;
 
 }
-h1{
+
+h1 {
     
     position:relative;
     margin-bottom: 60px;
-
-
-    
+   
 }
 
 
-canvas{
+canvas {
 
     position:relative;
     background: white;
