@@ -64,7 +64,8 @@ var contains; //what does the canvas square contain
 			 if (!hasWinner) {
 
 			 	squaresFilled++; //increment the filled squares count
-				//determine if tie game (space filled) or if space is not available
+
+				//determine if tie game (space filled) 
 				
 
 				
@@ -76,7 +77,7 @@ var contains; //what does the canvas square contain
 				
 					} else	{
 
-						console.log("game winner");
+						console.log("final");
 					}
 			}
 		}
